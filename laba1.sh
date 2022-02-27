@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $# != 1 ]]; then
-	echo "Check parameters! Enter 1 parameters!" >&2 ;
+	echo "Check parameters! Enter one argument: name of directory" >&2 ;
 fi
 
 if [ -d "$1" ]; then
@@ -13,6 +13,6 @@ if [ -d "$1" ]; then
 
 	echo Count of all files $count
 else
-	echo "Invalid catalog!" >&2
+	echo "This directory doesn't exist" >&2
 fi
 exit 0
