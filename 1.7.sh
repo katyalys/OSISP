@@ -1,11 +1,21 @@
 #!/bin/bash
 
-SOURCE="$1"
-EXEFILE="$2"
- 
-if gcc -o "$EXEFILE" "$SOURCE"; then
-    ./"$EXEFILE"
+if [ $# -eq 2 ]
+then
+	if [ ! -f $1 ]
+	then
+		{
+			echo "The $1 file doesn't exist" >&2
+		}
+	else
+		{
+			gcc $1 -o $2 && ./$2
+		}
+	fi
 else
-    echo "Compilation finish with error(s)" >&2
-    exit 1
+	{
+		echo "Enter right number of arguments!" >&2
+		echo "First argument: compiling file" >&2
+		echo "Second argument: exe-file which stores the result" >&2
+	}
 fi
